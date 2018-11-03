@@ -1,0 +1,11 @@
+declare module 'history/createBrowserHistory';
+declare module 'react-redux';
+declare module 'redux-actions';
+declare module 'redux-saga';
+declare module 'uuid';
+declare module 'redux-logger';
+declare module 'classnames';
+declare module 'react-router';
+declare module 'react-router-dom';
+declare module 'react-router-redux';
+declare module 'redux-devtools-extension';

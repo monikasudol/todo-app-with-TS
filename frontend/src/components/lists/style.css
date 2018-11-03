@@ -1,0 +1,18 @@
+.lists-container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+}
+
+.lists-box {
+  background-color: rgb(150, 204, 220);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.lists-title {
+  
+}
