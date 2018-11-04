@@ -10,8 +10,8 @@ router.use((req, res, next) => {
 
 router.get('/all', tasksController.handleGetTasks);
 router.post('/new', tasksController.handleAddTask);
-router.post('/edit-title', tasksController.handleEditTaskTitle);
-router.post('/edit-worker', tasksController.handleEditWorker);
+router.put('/edit-title', tasksController.handleEditTaskTitle);
+router.put('/edit-worker', tasksController.handleEditWorker);
 router.delete('/:id', tasksController.handleRemoveTask);
 
 

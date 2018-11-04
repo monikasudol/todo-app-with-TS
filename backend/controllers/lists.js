@@ -19,6 +19,7 @@ const handleRemoveList = async (req, res) => {
 
 const handleEditTitle = async (req, res) => {  
   const listDetails = req.body;
+  console.log(req);
   const changedList = await listsModel.changeTitle(listDetails.title, listDetails.id);
   res.send(changedList);
 };

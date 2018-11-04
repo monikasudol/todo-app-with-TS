@@ -1,4 +1,4 @@
-import { post, deleteRest, toJSON } from '../utils/api';
+import { post, put, deleteRest, toJSON } from '../utils/api';
 
 export const createTask = ({ taskName, parentId, stage, worker }) => post(
   `http://localhost:3001/tasks/new`,
@@ -10,7 +10,7 @@ export const createTask = ({ taskName, parentId, stage, worker }) => post(
   }
 ).then(toJSON);
 
-export const changeTitle = ({ taskName, id }) => post(
+export const changeTitle = ({ taskName, id }) => put(
   `http://localhost:3001/tasks/edit-title`,
   { taskName, id }
 ).then(toJSON);
@@ -18,7 +18,7 @@ export const changeTitle = ({ taskName, id }) => post(
 export const fetchTasks = () => fetch(`http://localhost:3001/tasks/all`)
   .then(toJSON);
 
-export const changeWorker = ({ worker, id }) => post(
+export const changeWorker = ({ worker, id }) => put(
   `http://localhost:3001/tasks/edit-worker`,
   { worker, id }
 ).then(toJSON);

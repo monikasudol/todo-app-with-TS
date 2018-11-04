@@ -6,6 +6,14 @@ export const post = (url: string, body: object) => fetch(url, {
   }
 });
 
+export const put = (url: string, body: object) => fetch(url, {
+  method: 'PUT',
+  body: body && JSON.stringify(body),
+  headers: {
+    'content-Type': 'application/json'
+  }
+});
+
 export const deleteRest = (url: string) => fetch(url, {
   method: 'DELETE'
 });

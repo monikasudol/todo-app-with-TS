@@ -36,7 +36,7 @@ class AddTask extends React.Component<Props, State> {
     this.setState({ worker });
   };
 
-  handleCreateNewTask = () => {
+  handleCreateNewTask = (ev: React.MouseEvent<HTMLDivElement>) => {
     const { worker, taskName } = this.state;
     const parentId = this.props.id;
     this.props.createNewTask(parentId, taskName, worker);

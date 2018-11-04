@@ -9,7 +9,8 @@ router.use((req, res, next) => {
 });
 
 router.get('/all', listsController.handleGetLists);
-router.post('/edit-title', listsController.handleEditTitle);
+// router.post('/edit-title', listsController.handleEditTitle);
+router.put('/edit-title', listsController.handleEditTitle);
 router.post('/new', listsController.handleAddList);
 router.delete('/:id', listsController.handleRemoveList);
 
