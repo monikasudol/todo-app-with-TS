@@ -12,7 +12,7 @@ router.get('/all', tasksController.handleGetTasks);
 router.post('/new', tasksController.handleAddTask);
 router.post('/edit-title', tasksController.handleEditTaskTitle);
 router.post('/edit-worker', tasksController.handleEditWorker);
-router.post('/remove-task', tasksController.handleRemoveTask);
+router.delete('/:id', tasksController.handleRemoveTask);
 
 
 module.exports = router;

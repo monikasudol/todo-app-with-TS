@@ -6,11 +6,13 @@
 }
 
 .lists-box {
-  background-color: rgb(150, 204, 220);
-  height: 400px;
+  width: 100%;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .lists-title {

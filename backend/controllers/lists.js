@@ -12,8 +12,8 @@ const handleGetLists = async (req, res) => {
 };
 
 const handleRemoveList = async (req, res) => {
-  const id = req.body;
-  const idToRemoveList = await listsModel.deleteList(id.id);
+  const id = req.params.id;
+  const idToRemoveList = await listsModel.deleteList(id);
   res.send({ idToRemoveList });
 };
 

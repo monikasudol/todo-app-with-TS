@@ -7,7 +7,8 @@ import './style.css';
 
 export interface OwnProps {
   taskName: string,
-  id: string
+  id: string,
+  parentId: string
 };
 
 export interface DispatchProps {
@@ -28,7 +29,7 @@ class Task extends React.PureComponent<Props> {
     return (
       <div className='task-container'>
         <DeleteIcon onClick={this.handleRemoveTask} />
-        {taskName}*
+        {taskName}
       </div>
     )
   }

@@ -1,3 +1,5 @@
+import { post, deleteRest, toJSON } from '../utils/api';
+
 export const createTask = ({ taskName, parentId, stage, worker }) => post(
   `http://localhost:3001/tasks/new`,
   {
@@ -26,19 +28,6 @@ export const changeStatus = ({ status, id }) => post(
   { status, id }
 ).then(toJSON);
 
-const post = (url, body, additionalConfig = {}) => fetch(url, {
-  method: 'POST',
-  ...additionalConfig,
-  body: JSON.stringify(body),
-  headers: {
-    'Content-Type': 'application/json',
-    ...additionalConfig.headers
-  }
-});
-
-export const removeTask = ({ taskId }) => post(
-  'http://localhost:3001/tasks/remove-task',
-  { taskId }
+export const removeTask = (id) => deleteRest(
+  `http://localhost:3001/tasks/${id}`
 ).then(toJSON);
-
-export const toJSON = response => response.json();

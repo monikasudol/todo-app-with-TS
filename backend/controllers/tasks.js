@@ -2,7 +2,6 @@ const tasksModel = require('../models/tasks');
 
 const handleAddTask = async (req, res) => {
   const task = req.body;
-  console.log(task);
   const newTask = await tasksModel.addTask(task);
   res.send(newTask);
 };
@@ -26,8 +25,8 @@ const handleEditWorker = async (req, res) => {
 };
 
 const handleRemoveTask = async (req, res) => {
-  const taskDetails = req.body;
-  const taskId = await tasksModel.removeTask(taskDetails.taskId);
+  const id = req.params.id;
+  const taskId = await tasksModel.removeTask(id);
   res.send(taskId);
 };
 

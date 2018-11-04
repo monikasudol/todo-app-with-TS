@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import ClassicInput from '../classic-input';
 import { createNewTask } from '../../state/actions/tasks';
+import './style.css';
 
 export interface OwnProps {
   id: string,
@@ -44,7 +45,7 @@ class AddTask extends React.Component<Props, State> {
   render() {
   
     return (
-      <div>
+      <div className='add-task__container'>
         <ClassicInput
           label='task name'
           type='text'

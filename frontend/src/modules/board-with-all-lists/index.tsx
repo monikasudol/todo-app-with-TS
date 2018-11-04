@@ -3,6 +3,7 @@ import * as Redux from 'redux';
 import { connect } from 'react-redux';
 import Lists from '../../components/lists';
 import { fetchAllLists } from '../../state/actions/lists';
+import './style.css';
 
 interface StateProps {
   lists: any
@@ -35,20 +36,19 @@ class BoardWithAllLists extends React.Component<Props, State> {
     const { lists } = this.props;
 
     return (
-      <div className="App">Lists
-        <div className="board-with-lists">
+      <div className='board-with-all-lists-container'>
+        <h1>Lists</h1>
+        <div className='board-with-lists'>
           {(lists.length > 0) && lists.map((list: any, index: number) => (
-            <React.Fragment key={index}>
-              <span>{list.title}</span>
-              <Lists
-                title={list.title}
-                day={list.day}
-                month={list.month}
-                year={list.year}
-                _id={list._id}
-                owner={list.owner} />
-
-            </React.Fragment>))}
+            <Lists
+              key={index}
+              title={list.title}
+              day={list.day}
+              month={list.month}
+              year={list.year}
+              _id={list._id}
+              owner={list.owner} />
+          ))}
         </div>
       </div>
     );

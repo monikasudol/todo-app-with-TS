@@ -27,9 +27,13 @@ class List extends React.PureComponent<Props> {
     return (
       <div className='list-container'>
         <div className="Lists-listsContent-header">
-          {`${stage}`}
+          <h4>{`${stage}`}</h4>
           {(tasks && tasks.length > 0) && tasks.map((task: any, inx: number) => (
-            <Task key={inx} taskName={task.taskName} id={id} />
+            <Task
+              key={inx}
+              taskName={task.taskName}
+              parentId={id}
+              id={task._id} />
           ))}
         </div>
       </div>

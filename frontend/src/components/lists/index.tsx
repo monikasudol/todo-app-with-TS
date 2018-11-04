@@ -77,7 +77,7 @@ class Lists extends React.Component<Props, State, any> {
     this.setState({ title });
   };
 
-  public componentDidMount()  {
+  public componentDidMount() {
     this.props.fetchTasks();
   }
 
@@ -86,7 +86,7 @@ class Lists extends React.Component<Props, State, any> {
     const { editTitle } = this.state;
     return (
       <div className='lists-box'>
-        <DeleteIcon onClick={this.onRemoveList}/>
+        <DeleteIcon onClick={this.onRemoveList} />
         {editTitle ?
           <input
             value={this.state.title}
@@ -96,11 +96,12 @@ class Lists extends React.Component<Props, State, any> {
           <div
             onClick={this.onChangeTitle}
             className='lists-title'>
-            {title}
+            <h3>List title: {title}</h3>
           </div>}
+        {day && (
         <div className='lists-deadline'>
-          Deadline {day}
-        </div>
+          <h3>Deadline: {day}</h3>
+        </div>)}
         <div className='lists-container'>
           <List
             id={_id}

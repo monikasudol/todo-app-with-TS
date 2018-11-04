@@ -1,5 +1,4 @@
 .list-container {
   width: 200px;
-  background-color: rgb(180, 180, 240);
-  height: 150px;
+  height: auto;
 }

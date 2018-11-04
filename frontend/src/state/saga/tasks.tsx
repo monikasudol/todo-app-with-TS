@@ -32,6 +32,7 @@ function* onFetchAllTasks() {
 
 function* onCreateNewTask(action: any) {
   const { payload } = action;
+  console.log(payload);
   try {
     const response = yield call(createTask, payload);
     yield put(createNewTaskSuccess(response));
@@ -63,9 +64,11 @@ function* onCreateNewTask(action: any) {
 // };
 
 function* onRemoveTask(action: any) {
-  const { payload } = action;
+  const id = action.payload.id;
+  console.log(id);
   try {
-    const response = yield call(removeTask, payload.id);
+    const response = yield call(removeTask, id);
+    console.log(response)
     yield put(removeTaskSuccess(response));
   }
   catch (error) {

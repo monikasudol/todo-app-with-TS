@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from '@material-ui/core/Icon';
+import * as FontAwesome from 'react-icons/fa'
 import './style.css';
 
 export interface Props {
@@ -9,7 +9,9 @@ export interface Props {
 function DeleteIcon(props: Props) {
 
   return (
-    <Icon onClick={props.onClick} className='delete-icon'>Delete</Icon>
+    <FontAwesome.FaTimes
+      onClick={props.onClick}
+      className='delete-icon'/>
   );
 };
 

@@ -7,7 +7,7 @@ db.tasks = new Datastore({
     if (err) {
       console.error('Error while loading db', err)
     } else {
-      console.log('first success!')
+      console.log('database tasks success!')
     }
   }
 });
@@ -17,7 +17,11 @@ tasks = db.tasks.find({}, function (err, allTasks) {
   tasks = allTasks;
 });
 
-let lastId = 0;
+const refreshTasks = () => {
+  db.tasks.find({}, function (err, allTasks) {
+    tasks = allTasks;
+  });
+}
 
 const addTask = async ({ taskName, parentId, stage, worker }) => {
   const newTask = {
@@ -31,10 +35,7 @@ const addTask = async ({ taskName, parentId, stage, worker }) => {
     if (err) {
       console.log(err)
     }
-  });
-
-  await db.tasks.find({}, function (err, allTasks) {
-    tasks = allTasks;
+    refreshTasks();
   });
 
   return newTask;
@@ -46,28 +47,23 @@ const getTasks = async () => {
 
 const changeTitle = async (taskName, id) => {
   await db.tasks.update({ id: id }, { $set: { taskName } }, {}, function (err, numReplaced) {
+    refreshTasks();
   });
-  await db.tasks.find({}, function (err, allTasks) {
-    tasks = allTasks;
-  });
+
   return { taskName, id };
 };
 
 const changeWorker = async (worker, id) => {
   await db.tasks.update({ id: id }, { $set: { worker } }, {}, function (err, numReplaced) {
+    refreshTasks();
   });
-  await db.tasks.find({}, function (err, allTasks) {
-    tasks = allTasks;
-  });
+
   return { worker, id };
 };
 
 const removeTask = async (id) => {
-  await db.tasks.remove({ id: id }, {}, function (err, numRemoved) {
-    numRemoved = 1
-  });
-  await db.tasks.find({}, function (err, allTasks) {
-    tasks = allTasks;
+  await db.tasks.remove({ _id: id }, {}, function (err, numRemoved) {
+    refreshTasks();
   });
   return { id };
 };

@@ -1,4 +1,8 @@
 .task-container {
-  background-color: pink;
+  padding: 5px;
+  margin-bottom: 5px;
+  min-height: 60px;
+  background-color: rgb(226, 222, 223);
   position: relative;
+  box-shadow: 0 8px 6px -6px rgb(50, 50, 50);
 }

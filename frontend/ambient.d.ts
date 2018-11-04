@@ -9,3 +9,5 @@ declare module 'react-router';
 declare module 'react-router-dom';
 declare module 'react-router-redux';
 declare module 'redux-devtools-extension';
+declare module 'react-icons/lib/io/android-close';
+declare module 'react-icons/fa';
